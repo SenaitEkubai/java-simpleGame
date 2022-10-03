@@ -11,22 +11,7 @@ public class Player1 {
         this.score = score;
     }
 
-    public String hitByGun1() {
-        String message;
-        int reducer = 30;
-        if (this.score <= 0 || (this.score -= reducer) <= 0) {
-            this.score = 0;
-            // System.out.println("Game over, score is now " + this.score + " " + this.name + " is dead");
-            message = "Game over, score is now " + this.score + " " + this.name + " is dead";
-        } else {
-            this.score -= reducer;
-            System.out.println(this.score -=reducer);
 
-            //System.out.println(this.name + " is hit by Gun1, score is reduced by " + reducer + ", Score is now " + this.score);
-            message = this.name + " is hit by Gun1, score is reduced by " + reducer + ", Score is now " + this.score;
-        }
-        return message;
-    }
 
     public String hitOpponentWithGun1() {
         String message;
@@ -56,17 +41,26 @@ public class Player1 {
         }
         return message;
     }
-
-    public String hitByGun2() {
-        String message = "";
-        int reducer = 40;
-        if (this.score <= 0 || (this.score -= reducer) <= 0) {
+    public String hitByGun1() {
+        String message;
+        int reducer = 30;
+        this.score -= reducer;
+        if (this.score <= 0 ) {
             this.score = 0;
-            System.out.println("Game over, score is now " + this.score + " " + this.name + " is dead");
             message = "Game over, score is now " + this.score + " " + this.name + " is dead";
         } else {
-            this.score -= reducer;
-            System.out.println(this.name + " is hit by Gun2, score is reduced by " + reducer + ", Score is now " + this.score);
+            message = this.name + " is hit by Gun1, score is reduced by " + reducer + ", Score is now " + this.score;
+        }
+        return message;
+    }
+    public String hitByGun2() {
+        String message ;
+        int reducer = 40;
+        this.score -= reducer;
+        if (this.score <= 0 ) {
+            this.score = 0;
+            message = "Game over, score is now " + this.score + " " + this.name + " is dead";
+        } else {
             message = this.name + " is hit by Gun2, score is reduced by " + reducer + ", Score is now " + this.score;
         }
         return message;
