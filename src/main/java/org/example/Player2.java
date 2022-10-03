@@ -14,7 +14,6 @@ public class Player2 extends Player1 {
 
     @Override
     public String printMessageWhenPlayerIsDead() {
-        // System.out.println("Game over, score is now " + this.score + " " + this.name + " is dead");
         return "Game over, score is now " + this.score + " " + this.name + " is dead";
     }
 
@@ -23,12 +22,12 @@ public class Player2 extends Player1 {
         String message = "";
         if (armour) {
             int reducer = 10;
-            if (this.score <= 0 || (this.score -= reducer) <= 0) {
+            this.score -= reducer;
+            if (this.score <= 0) {
                 this.score = 0;
                 message = printMessageWhenPlayerIsDead();
-            } else {
-                this.score -= reducer;
-                // System.out.println(" Armour is on, " + this.name + " is hit by Gun1, score is reduced by " + reducer + ", Score is now " + this.score);
+            }
+           else {
                 message = " Armour is on, " + this.name + " is hit by Gun1, score is reduced by " + reducer + ", Score is now " + this.score;
             }
         }
@@ -39,7 +38,6 @@ public class Player2 extends Player1 {
                 message = printMessageWhenPlayerIsDead();
             } else {
                 this.score -= reducer;
-                //  System.out.println(this.name + " is hit by Gun1, score is reduced by " + reducer + ", Score is now " + this.score);
                 message = this.name + " is hit by Gun1, score is reduced by " + reducer + ", Score is now " + this.score;
             }
         }
@@ -52,12 +50,11 @@ public class Player2 extends Player1 {
         int reducer;
         if (armour) {
             reducer = 20;
-            if (this.score <= 0 || (this.score -= reducer) <= 0) {
+            if (this.score <= 0) {
                 this.score = 0;
                 message = printMessageWhenPlayerIsDead();
             } else {
                 this.score -= reducer;
-                System.out.println(" Armour is on, " + this.name + " is hit by Gun1, score is reduced by " + reducer + ", Score is now " + this.score);
                 message = " Armour is on, " + this.name + " is hit by Gun1, score is reduced by " + reducer + ", Score is now " + this.score;
             }
         }
@@ -69,7 +66,6 @@ public class Player2 extends Player1 {
                 message = printMessageWhenPlayerIsDead();
             } else {
                 this.score -= reducer;
-                System.out.println(this.name + " is hit by Gun1, score is reduced by " + reducer + ", Score is now " + this.score);
                 message = " Armour is on, " + this.name + " is hit by Gun1, score is reduced by " + reducer + ", Score is now " + this.score;
             }
         }
@@ -80,12 +76,10 @@ public class Player2 extends Player1 {
     public String hitOpponentWithGun1() {
         String message;
         if (this.score <= 0) {
-            System.out.println("score is less than or equal to zero, need to heal first");
             message = ("score is less than or equal to zero, need to heal first");
         } else {
             int increase = 40;
             this.score += increase;
-            System.out.println(this.name + " hit opponent with gun1, score is now increased by " + increase + " score is now " + this.score);
             message = (this.name + " hit opponent with gun1, score is now increased by " + increase + " score is now " + this.score);
         }
 
@@ -96,12 +90,10 @@ public class Player2 extends Player1 {
     public String hitOpponentWithGun2() {
         String message = "";
         if (this.score <= 0) {
-            System.out.println("score is less than or equal to zero, need to heal first");
             message = ("score is less than or equal to zero, need to heal first");
         } else {
             int increase = 50;
             this.score += increase;
-            System.out.println(this.name + " hit opponent with gun2, score is now increased by " + increase + " score is now," + this.score);
             message = (this.name + " hit opponent with gun2, score is now increased by " + increase + " score is now," + this.score);
         }
         return message;
